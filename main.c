@@ -7,6 +7,35 @@ struct time
     int hours;
 };
 
+struct operators
+{
+    char operator[25];
+};
+
+struct tariffs
+{
+    char tf_name[25];
+
+    char gb[20];
+    int gb_value;
+    
+    char min[20];
+    int min_value;
+
+    char sms[20];
+    int sms_value;
+
+    char price[35];
+    int price_value;
+};
+
+void error()
+{
+    system("clear");
+    printf(" Вы выбрали несуществующий пункт, давайте начнем с начала\n");
+    exit(0);
+}
+
 int hrs(void)
 {
     struct tm *ptr;
@@ -35,10 +64,158 @@ void greeting()
         printf(" Доброй ночи\n"); 
 }
 
+void operators()
+{
+    FILE *f;
+    struct operators op[4];
+    f = fopen("csv_input/operators.csv", "r");
+    fscanf(f,"%s", op[0].operator);
+    fscanf(f,"%s", op[1].operator);
+    fscanf(f,"%s", op[2].operator);
+    fscanf(f,"%s", op[3].operator);
+    fclose(f);
+    printf("1. %s\n", op[0].operator);
+    printf("2. %s\n", op[1].operator);
+    printf("3. %s\n", op[2].operator);
+    printf("4. %s\n", op[3].operator);
+}
+
+void print1(int a)
+{
+    switch(a) {
+        case 1: {
+            FILE *f;
+            struct tariffs pr;
+            f = fopen("csv_input/MTC/1.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("1: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/MTC/2.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("2: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/MTC/3.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("3: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/MTC/4.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("4: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            break;
+        }
+        case 2: {
+            FILE *f;
+            struct tariffs pr;
+            f = fopen("csv_input/TELE2/1.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("1: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/TELE2/2.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("2: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/TELE2/3.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("3: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/TELE2/4.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("4: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            break;
+        }
+        case 3: {
+            FILE *f;
+            struct tariffs pr;
+            f = fopen("csv_input/YOTA/1.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("1: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/YOTA/2.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("2: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/YOTA/3.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("3: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/YOTA/4.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("4: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            break;
+        }
+        case 4: {
+            FILE *f;
+            struct tariffs pr;
+            f = fopen("csv_input/MEGAFON/1.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("1: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/MEGAFON/2.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("2: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/MEGAFON/3.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("3: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            f = fopen("csv_input/MEGAFON/4.csv", "r");
+            fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+            fclose(f);
+            printf("4: %s\n%s\n%d\n%s\n%d\n%s\n%d\n%s\n%d\n\n", pr.tf_name, pr.gb, pr.gb_value, pr.min, pr.min_value, pr.sms, pr.sms_value, pr.price, pr.price_value);
+            break;
+        }
+    }
+}
+
+void menu()
+{
+    int a;
+    scanf("%d", &a);
+    if(a == 1) {
+        system("clear");
+        printf(" Выберите оператора для просмотра тарифа\n");
+        operators();
+        int b;
+        scanf("%d", &b);
+        if(b == 1) {
+            system("clear");
+            printf(" Тарифы оператора MTC\n");
+            print1(b);
+        }
+        else if(b == 2) {
+            system("clear");
+            printf(" Тарифы оператора TELE2\n");
+            print1(b);
+        }
+        else if(b == 3) {
+            system("clear");
+            printf(" Тарифы оператора YOTA\n");
+            print1(b);
+        }
+        else if(b == 4) {
+            system("clear");
+            printf(" Тарифы оператора MEGAFON\n");
+            print1(b);
+        }
+        else {
+            error();
+        }
+    }
+    else if(a == 2) {
+        system("clear");
+        printf("В разработке\n");
+        exit(0);
+    }
+}
+
 int main()
 {
     system("clear");
     hrs();
     greeting();
     printf(" Выберите пунт для продолжения\n1. Ознакомиться с операторами и тарифами\n2. Подобрать тариф на основе затрат\n");
+    menu();
 }
