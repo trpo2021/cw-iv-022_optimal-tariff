@@ -206,9 +206,75 @@ void menu()
     }
     else if(a == 2) {
         system("clear");
-        printf("В разработке\n");
-        exit(0);
+        printf(" Пожалуйста, выберите своего текущего оператора\n");
+        operators();
+        int b;
+        scanf("%d", &b);
+        if(b == 1) {
+            system("clear");
+            printf(" Пожалуйста, выберите свой текущий тариф MTC\n");
+            print1(b);
+            int c;
+            scanf("%d", &c);
+            if(c != 1 && c != 2 && c != 3 && c != 4) {
+                error();
+            }
+            else {
+                system("clear");
+                printf("В разработке\n");
+                exit(0);
+            }
+        }
+        else if(b == 2) {
+            system("clear");
+            printf(" Пожалуйста, выберите свой текущий тариф TELE2\n");
+            print1(b);
+            int c;
+            scanf("%d", &c);
+            if(c != 1 && c != 2 && c != 3 && c != 4) {
+                error();
+            }
+            else {
+                system("clear");
+                printf("В разработке\n");
+                exit(0);
+            }
+        }
+        else if(b == 3) {
+            system("clear");
+            printf(" Пожалуйста, выберите свой текущий тариф YOTA\n");
+            print1(b);
+            int c;
+            scanf("%d", &c);
+            if(c != 1 && c != 2 && c != 3 && c != 4) {
+                error();
+            }
+            else {
+                system("clear");
+                printf("В разработке\n");
+                exit(0);
+            }
+        }
+        else if(b == 4) {
+            system("clear");
+            printf(" Пожалуйста, выберите свой текущий тариф MEGAFON\n");
+            print1(b);
+            int c;
+            scanf("%d", &c);
+            if(c != 1 && c != 2 && c != 3 && c != 4) {
+                error();
+            }
+            else {
+                system("clear");
+                printf("В разработке\n");
+                exit(0);
+            }
+        }
+        else
+            error();
     }
+    else
+        error();
 }
 
 int main()
