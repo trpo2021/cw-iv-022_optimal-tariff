@@ -49,11 +49,41 @@ int temp(int *a, int gb, int min, int sms, int price)
                 printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с начала\n");
                 temp(a, gb, min, sms, price);
             }
-            if (gbe >= 0 && gbe < gb) {
-                system("clear");
-                printf(" Введенное значение корректно\n");
-            }
+            *a = *a + 1;
+            temp(a, gb, min, sms, price);
             break;
+        }
+        case 2: {
+            printf("В вашем пакете: %d минут звонков\n", min);
+            printf("Сколько минут звонков из тарифа вы используете?\n");
+            int mine;
+            scanf("%d", &mine);
+            if (mine < 0 || mine > min) {
+                system("clear");
+                printf(" Вы ввели неккоректное значение минут, давайте начнем с начала\n");
+                temp(a, gb, min, sms, price);
+            }
+            *a = *a + 1;
+            temp(a, gb, min, sms, price);
+            break;
+        }
+        case 3: {
+            printf("В вашем пакете: %d смс\n", sms);
+            printf("Сколько смс сообщений из тарифа вы используете?\n");
+            int smse;
+            scanf("%d", &smse);
+            if (smse < 0 || smse > sms) {
+                system("clear");
+                printf(" Вы ввели неккоректное значение смс, давайте начнем с начала\n");
+                temp(a, gb, min, sms, price);
+            }
+            *a = *a + 1;
+            temp(a, gb, min, sms, price);
+            break;
+        }
+        case 4: {
+            system("clear");
+            printf(" В разработке\n");
         }
     }
 }
