@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct time
-{
-    int hours;
-};
-
 struct operators
 {
     char operator[25];
@@ -29,11 +24,57 @@ struct tariffs
     int price_value;
 };
 
+struct time
+{
+    int hours;
+};
+
 void error()
 {
     system("clear");
     printf(" Вы выбрали несуществующий пункт, давайте начнем с начала\n");
     exit(0);
+}
+
+int temp(int *a, int gb, int min, int sms, int price)
+{
+    switch(*a) {
+        case 1: {
+            printf("В вашем пакете: %d гигабайт\n", gb);
+            printf("Сколько гигабайт из тарифа вы используете?\n");
+            int gbe;
+            scanf("%d", &gbe);
+            if (gbe < 0 || gbe > gb) {
+                system("clear");
+                printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с начала\n");
+                temp(a, gb, min, sms, price);
+            }
+            if (gbe >= 0 && gbe < gb) {
+                system("clear");
+                printf(" Введенное значение корректно\n");
+            }
+            break;
+        }
+    }
+}
+
+int data(int b, int c)
+{   
+    if (b == 1 && c == 1) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MTC/1.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    else {
+        system("clear");
+        printf(" В разработке\n");
+        exit(0);
+    }
 }
 
 int hrs(void)
@@ -221,8 +262,7 @@ void menu()
             }
             else {
                 system("clear");
-                printf("В разработке\n");
-                exit(0);
+                data(b,c);
             }
         }
         else if(b == 2) {
@@ -236,8 +276,7 @@ void menu()
             }
             else {
                 system("clear");
-                printf("В разработке\n");
-                exit(0);
+                data(b,c);
             }
         }
         else if(b == 3) {
@@ -251,8 +290,7 @@ void menu()
             }
             else {
                 system("clear");
-                printf("В разработке\n");
-                exit(0);
+                data(b,c);
             }
         }
         else if(b == 4) {
@@ -266,15 +304,16 @@ void menu()
             }
             else {
                 system("clear");
-                printf("В разработке\n");
-                exit(0);
+                data(b,c);
             }
         }
-        else
+        else {
             error();
+        }
     }
-    else
+    else {
         error();
+    }
 }
 
 int main()
