@@ -49,14 +49,6 @@ int temp(int *a, int gb, int min, int sms, int price)
                 printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с начала\n");
                 temp(a, gb, min, sms, price);
             }
-<<<<<<< HEAD
-            if (gbe >= 0 && gbe < gb) {
-                system("clear");
-                printf(" Введенное значение корректно\n");
-            }
-            break;
-        }
-=======
             *a = *a + 1;
             temp(a, gb, min, sms, price);
             break;
@@ -93,7 +85,6 @@ int temp(int *a, int gb, int min, int sms, int price)
             system("clear");
             printf(" В разработке\n");
         }
->>>>>>> BezlepkinAV
     }
 }
 
