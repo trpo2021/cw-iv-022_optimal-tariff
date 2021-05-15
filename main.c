@@ -100,10 +100,155 @@ int data(int b, int c)
         a = &b;
         temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
     }
-    else {
-        system("clear");
-        printf(" В разработке\n");
-        exit(0);
+    if (b == 1 && c == 2) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MTC/2.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 1 && c == 3) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MTC/3.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 1 && c == 4) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MTC/4.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 2 && c == 1) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/TELE2/1.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 2 && c == 2) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/TELE2/2.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 2 && c == 3) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/TELE2/3.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 2 && c == 4) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/TELE2/4.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+        if (b == 3 && c == 1) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/YOTA/1.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 3 && c == 2) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/YOTA/2.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 3 && c == 3) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/YOTA/3.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 3 && c == 4) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/YOTA/4.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 4 && c == 1) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MEGAFON/1.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 4 && c == 2) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MEGAFON/2.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 4 && c == 3) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MEGAFON/3.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
+    }
+    if (b == 4 && c == 4) {
+        FILE *f;
+        struct tariffs pr;
+        f = fopen("csv_input/MEGAFON/4.csv", "r");
+        fscanf(f,"%s%s%d%s%d%s%d%s%d", pr.tf_name, pr.gb, &pr.gb_value, pr.min, &pr.min_value, pr.sms, &pr.sms_value, pr.price, &pr.price_value);
+        fclose(f);
+        int b = 1, *a;
+        a = &b;
+        temp(a, pr.gb_value, pr.min_value, pr.sms_value, pr.price_value);
     }
 }
 
