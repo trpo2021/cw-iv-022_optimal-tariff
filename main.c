@@ -58,110 +58,109 @@ int comparison (int *gbe, int *mine, int *smse) {
     float minPercent;
     float smsPercent;
 
-    FILE *mts1, *mts2, *mts3, *mts4, *mega1, *mega2, *mega3, *mega4,
-    *tele1, *tele2, *tele3, *tele4, *yota1, *yota2, *yota3, *yota4;  
+    FILE *tariff; 
 
     struct compareTariffs checking[16];
 
     //МТС
-    mts1 = fopen("csv_input/MTC/1.csv", "r");
-    fscanf(mts1,"%s%s%d%s%d%s%d%s%d", checking[0].tname, checking[0].gbHead, &checking[0].gbValue, 
+    tariff = fopen("csv_input/MTC/1.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[0].tname, checking[0].gbHead, &checking[0].gbValue, 
         checking[0].minHead, &checking[0].minValue, checking[0].smsHead, &checking[0].smsValue, 
         checking[0].priceHead, &checking[0].priceValue);
-    fclose(mts1);
+    fclose(tariff);
 
-    mts2 = fopen("csv_input/MTC/2.csv", "r");
-    fscanf(mts2,"%s%s%d%s%d%s%d%s%d", checking[1].tname, checking[1].gbHead, &checking[1].gbValue, 
+    tariff = fopen("csv_input/MTC/2.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[1].tname, checking[1].gbHead, &checking[1].gbValue, 
         checking[1].minHead, &checking[1].minValue, checking[1].smsHead, &checking[1].smsValue, 
         checking[1].priceHead, &checking[1].priceValue);
-    fclose(mts2);
+    fclose(tariff);
 
-    mts3 = fopen("csv_input/MTC/3.csv", "r");
-    fscanf(mts3,"%s%s%d%s%d%s%d%s%d", checking[2].tname, checking[2].gbHead, &checking[2].gbValue, 
+    tariff = fopen("csv_input/MTC/3.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[2].tname, checking[2].gbHead, &checking[2].gbValue, 
         checking[2].minHead, &checking[2].minValue, checking[2].smsHead, &checking[2].smsValue, 
         checking[2].priceHead, &checking[2].priceValue);
-    fclose(mts3);
+    fclose(tariff);
 
-    mts4 = fopen("csv_input/MTC/4.csv", "r");
-    fscanf(mts4,"%s%s%d%s%d%s%d%s%d", checking[3].tname, checking[3].gbHead, &checking[3].gbValue, 
+    tariff = fopen("csv_input/MTC/4.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[3].tname, checking[3].gbHead, &checking[3].gbValue, 
         checking[3].minHead, &checking[3].minValue, checking[3].smsHead, &checking[3].smsValue, 
         checking[3].priceHead, &checking[3].priceValue);
-    fclose(mts4);
+    fclose(tariff);
 
     // МЕГАФОН 
-    mega1 = fopen("csv_input/MEGAFON/1.csv", "r");
-    fscanf(mega1,"%s%s%d%s%d%s%d%s%d", checking[4].tname, checking[4].gbHead, &checking[4].gbValue, 
+    tariff = fopen("csv_input/MEGAFON/1.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[4].tname, checking[4].gbHead, &checking[4].gbValue, 
         checking[4].minHead, &checking[4].minValue, checking[4].smsHead, &checking[4].smsValue, 
         checking[4].priceHead, &checking[4].priceValue);
-    fclose(mega1);
+    fclose(tariff);
 
-    mega2 = fopen("csv_input/MEGAFON/2.csv", "r");
-    fscanf(mega2,"%s%s%d%s%d%s%d%s%d", checking[5].tname, checking[5].gbHead, &checking[5].gbValue, 
+    tariff = fopen("csv_input/MEGAFON/2.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[5].tname, checking[5].gbHead, &checking[5].gbValue, 
         checking[5].minHead, &checking[5].minValue, checking[5].smsHead, &checking[5].smsValue, 
         checking[5].priceHead, &checking[5].priceValue);
-    fclose(mega2);
+    fclose(tariff);
 
-    mega3 = fopen("csv_input/MEGAFON/3.csv", "r");
-    fscanf(mega3,"%s%s%d%s%d%s%d%s%d", checking[6].tname, checking[6].gbHead, &checking[6].gbValue, 
+    tariff = fopen("csv_input/MEGAFON/3.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[6].tname, checking[6].gbHead, &checking[6].gbValue, 
         checking[6].minHead, &checking[6].minValue, checking[6].smsHead, &checking[6].smsValue, 
         checking[6].priceHead, &checking[6].priceValue);
-    fclose(mega3);
+    fclose(tariff);
 
-    mega4 = fopen("csv_input/MEGAFON/4.csv", "r");
-    fscanf(mega4,"%s%s%d%s%d%s%d%s%d", checking[7].tname, checking[7].gbHead, &checking[7].gbValue, 
+    tariff = fopen("csv_input/MEGAFON/4.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[7].tname, checking[7].gbHead, &checking[7].gbValue, 
         checking[7].minHead, &checking[7].minValue, checking[7].smsHead, &checking[7].smsValue, 
         checking[7].priceHead, &checking[7].priceValue);
-    fclose(mega4);
+    fclose(tariff);
 
     //ТЕЛЕ2
-    tele1 = fopen("csv_input/TELE2/1.csv", "r");
-    fscanf(tele1,"%s%s%d%s%d%s%d%s%d", checking[8].tname, checking[8].gbHead, &checking[8].gbValue, 
+    tariff = fopen("csv_input/TELE2/1.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[8].tname, checking[8].gbHead, &checking[8].gbValue, 
         checking[8].minHead, &checking[8].minValue, checking[8].smsHead, &checking[8].smsValue, 
         checking[8].priceHead, &checking[8].priceValue);
-    fclose(tele1);
+    fclose(tariff);
 
-    tele2 = fopen("csv_input/TELE2/2.csv", "r");
-    fscanf(tele2,"%s%s%d%s%d%s%d%s%d", checking[9].tname, checking[9].gbHead, &checking[9].gbValue, 
+    tariff = fopen("csv_input/TELE2/2.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[9].tname, checking[9].gbHead, &checking[9].gbValue, 
         checking[9].minHead, &checking[9].minValue, checking[9].smsHead, &checking[9].smsValue, 
         checking[9].priceHead, &checking[9].priceValue);
-    fclose(tele2);
+    fclose(tariff);
 
-    tele3 = fopen("csv_input/TELE2/3.csv", "r");
-    fscanf(tele3,"%s%s%d%s%d%s%d%s%d", checking[10].tname, checking[10].gbHead, &checking[10].gbValue, 
+    tariff = fopen("csv_input/TELE2/3.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[10].tname, checking[10].gbHead, &checking[10].gbValue, 
         checking[10].minHead, &checking[10].minValue, checking[10].smsHead, &checking[10].smsValue, 
         checking[10].priceHead, &checking[10].priceValue);
-    fclose(tele3);
+    fclose(tariff);
 
-    tele4 = fopen("csv_input/TELE2/4.csv", "r");
-    fscanf(tele4,"%s%s%d%s%d%s%d%s%d", checking[11].tname, checking[11].gbHead, &checking[11].gbValue, 
+    tariff = fopen("csv_input/TELE2/4.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[11].tname, checking[11].gbHead, &checking[11].gbValue, 
         checking[11].minHead, &checking[11].minValue, checking[11].smsHead, &checking[11].smsValue, 
         checking[11].priceHead, &checking[11].priceValue);
-    fclose(tele4);
+    fclose(tariff);
 
     //YOTA
-    yota1 = fopen("csv_input/YOTA/1.csv", "r");
-    fscanf(yota1,"%s%s%d%s%d%s%d%s%d", checking[12].tname, checking[12].gbHead, &checking[12].gbValue, 
+    tariff = fopen("csv_input/YOTA/1.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[12].tname, checking[12].gbHead, &checking[12].gbValue, 
         checking[12].minHead, &checking[12].minValue, checking[12].smsHead, &checking[12].smsValue, 
         checking[12].priceHead, &checking[12].priceValue);
-    fclose(yota1);
+    fclose(tariff);
 
-    yota2 = fopen("csv_input/YOTA/2.csv", "r");
-    fscanf(yota2,"%s%s%d%s%d%s%d%s%d", checking[13].tname, checking[13].gbHead, &checking[13].gbValue, 
+    tariff = fopen("csv_input/YOTA/2.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[13].tname, checking[13].gbHead, &checking[13].gbValue, 
         checking[13].minHead, &checking[13].minValue, checking[13].smsHead, &checking[13].smsValue, 
         checking[13].priceHead, &checking[13].priceValue);
-    fclose(yota2);
+    fclose(tariff);
 
-    yota3 = fopen("csv_input/YOTA/3.csv", "r");
-    fscanf(yota3,"%s%s%d%s%d%s%d%s%d", checking[14].tname, checking[14].gbHead, &checking[14].gbValue, 
+    tariff = fopen("csv_input/YOTA/3.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[14].tname, checking[14].gbHead, &checking[14].gbValue, 
         checking[14].minHead, &checking[14].minValue, checking[14].smsHead, &checking[14].smsValue, 
         checking[14].priceHead, &checking[14].priceValue);
-    fclose(yota3);
+    fclose(tariff);
 
-    yota4 = fopen("csv_input/YOTA/4.csv", "r");
-    fscanf(yota4,"%s%s%d%s%d%s%d%s%d", checking[15].tname, checking[15].gbHead, &checking[15].gbValue, 
+    tariff = fopen("csv_input/YOTA/4.csv", "r");
+    fscanf(tariff,"%s%s%d%s%d%s%d%s%d", checking[15].tname, checking[15].gbHead, &checking[15].gbValue, 
         checking[15].minHead, &checking[15].minValue, checking[15].smsHead, &checking[15].smsValue, 
         checking[15].priceHead, &checking[15].priceValue);
-    fclose(yota4);
+    fclose(tariff);
 
     struct compareTariffs minRecommend;
     unsigned int counter;
@@ -174,11 +173,8 @@ int comparison (int *gbe, int *mine, int *smse) {
             minRecommend.minValue = 1000;
         }
         gbPercent = ((float) *gbe / (float) checking[i].gbValue)*100;
-        //printf("GBPER = %f \n", gbPercent);//debug
         minPercent = ((float) *mine / (float) checking[i].minValue)*100;
-        //printf("MINPER = %f \n", minPercent);//debug
         smsPercent = ((float) *smse / (float) checking[i].smsValue)*100;
-        //printf("SMSPER = %f \n", smsPercent);//debug
         if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue)) {
             counter++;
         }
