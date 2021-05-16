@@ -36,7 +36,7 @@ void error()
     exit(0);
 }
 
-int comparison (int gbe, int mine, int smse) {
+int comparison (int *gbe, int *mine, int *smse) {
     struct compareTariffs
     {
         char tname[25];
@@ -163,48 +163,62 @@ int comparison (int gbe, int mine, int smse) {
         checking[15].priceHead, &checking[15].priceValue);
     fclose(yota4);
 
-    struct compareTariffs out[16];
+    struct compareTariffs minRecommend;
     unsigned int counter;
     unsigned int i;
 
-    int j = -1;
     for (i = 0; i < 16; i++) {
-        gbPercent = ((float) gbe / (float) checking[i].gbValue)*100;
-        minPercent = ((float) mine / (float) checking[i].minValue)*100;
-        smsPercent = ((float) smse / (float) checking[i].smsValue)*100;
+        if (i == 0) {
+            minRecommend.gbValue = 1000;
+            minRecommend.smsValue = 1000;
+            minRecommend.minValue = 1000;
+        }
+        gbPercent = ((float) *gbe / (float) checking[i].gbValue)*100;
+        //printf("GBPER = %f \n", gbPercent);//debug
+        minPercent = ((float) *mine / (float) checking[i].minValue)*100;
+        //printf("MINPER = %f \n", minPercent);//debug
+        smsPercent = ((float) *smse / (float) checking[i].smsValue)*100;
+        //printf("SMSPER = %f \n", smsPercent);//debug
+        if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue)) {
+            counter++;
+        }
+        if ((minPercent < 100) && (checking[i].minValue < minRecommend.minValue)) {
+            counter++;
+        }
+        if ((smsPercent < 100) && (checking[i].smsValue < minRecommend.smsValue)) {
+            counter++;
+        }
 
-        if ((gbPercent < 100) && (gbPercent > 50)) {
-            counter++;
-        }
-        if ((minPercent < 100) && (minPercent > 10)) {
-            counter++;
-        }
-        if ((smsPercent < 100)) {
-            counter++;
-        }
         if (counter == 3) {
-            //need to fix
-            j++;
-            out[j] = checking[i];
+            minRecommend = checking[i];
+            counter = 0;
+            gbPercent = 0;
+            minPercent = 0;
+            smsPercent = 0;
+        } else {
+            counter = 0;
+            gbPercent = 0;
+            minPercent = 0;
+            smsPercent = 0;
         }
 
-        //need to fix
-        printf("Рекомендуем тарифы: \n");
-        for (i = 0; i < j; i++) {
-            printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n", out[i].tname, out[i].gbValue, 
-                out[i].minValue, out[i].smsValue, out[i].priceValue);
-        }
-    }
+    } 
+
+    printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n", minRecommend.tname, minRecommend.gbValue, 
+    minRecommend.minValue, minRecommend.smsValue, minRecommend.priceValue);  
     
 }
 
+
+int gbe;
+int mine;
+int smse;
 int temp(int *a, int gb, int min, int sms, int price)
 {
     switch(*a) {
         case 1: {
             printf("В вашем пакете: %d гигабайт\n", gb);
             printf("Сколько гигабайт из тарифа вы используете?\n");
-            int gbe;
             scanf("%d", &gbe);
             if (gbe < 0 || gbe > gb) {
                 system("clear");
@@ -218,7 +232,6 @@ int temp(int *a, int gb, int min, int sms, int price)
         case 2: {
             printf("В вашем пакете: %d минут звонков\n", min);
             printf("Сколько минут звонков из тарифа вы используете?\n");
-            int mine;
             scanf("%d", &mine);
             if (mine < 0 || mine > min) {
                 system("clear");
@@ -232,7 +245,6 @@ int temp(int *a, int gb, int min, int sms, int price)
         case 3: {
             printf("В вашем пакете: %d смс\n", sms);
             printf("Сколько смс сообщений из тарифа вы используете?\n");
-            int smse;
             scanf("%d", &smse);
             if (smse < 0 || smse > sms) {
                 system("clear");
@@ -245,6 +257,7 @@ int temp(int *a, int gb, int min, int sms, int price)
         }
         case 4: {
             system("clear");
+            comparison(&gbe, &mine, &smse);
         }
     }
 }
