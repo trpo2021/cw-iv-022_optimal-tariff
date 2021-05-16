@@ -162,6 +162,39 @@ int comparison (int gbe, int mine, int smse) {
         checking[15].minHead, &checking[15].minValue, checking[15].smsHead, &checking[15].smsValue, 
         checking[15].priceHead, &checking[15].priceValue);
     fclose(yota4);
+
+    struct compareTariffs out[16];
+    unsigned int counter;
+    unsigned int i;
+
+    int j = -1;
+    for (i = 0; i < 16; i++) {
+        gbPercent = ((float) gbe / (float) checking[i].gbValue)*100;
+        minPercent = ((float) mine / (float) checking[i].minValue)*100;
+        smsPercent = ((float) smse / (float) checking[i].smsValue)*100;
+
+        if ((gbPercent < 100) && (gbPercent > 50)) {
+            counter++;
+        }
+        if ((minPercent < 100) && (minPercent > 10)) {
+            counter++;
+        }
+        if ((smsPercent < 100)) {
+            counter++;
+        }
+        if (counter == 3) {
+            //need to fix
+            j++;
+            out[j] = checking[i];
+        }
+
+        //need to fix
+        printf("Рекомендуем тарифы: \n");
+        for (i = 0; i < j; i++) {
+            printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n", out[i].tname, out[i].gbValue, 
+                out[i].minValue, out[i].smsValue, out[i].priceValue);
+        }
+    }
     
 }
 
