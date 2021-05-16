@@ -175,13 +175,13 @@ int comparison (int *gbe, int *mine, int *smse) {
         gbPercent = ((float) *gbe / (float) checking[i].gbValue)*100;
         minPercent = ((float) *mine / (float) checking[i].minValue)*100;
         smsPercent = ((float) *smse / (float) checking[i].smsValue)*100;
-        if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue)) {
+        if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue) && (gbPercent > 20)) {
             counter++;
         }
-        if ((minPercent < 100) && (checking[i].minValue < minRecommend.minValue)) {
+        if ((minPercent < 100) && (checking[i].minValue < minRecommend.minValue)  && (minPercent > 20)) {
             counter++;
         }
-        if ((smsPercent < 100) && (checking[i].smsValue < minRecommend.smsValue)) {
+        if ((smsPercent < 100) && (checking[i].smsValue < minRecommend.smsValue)  && (smsPercent > 20)) {
             counter++;
         }
 
