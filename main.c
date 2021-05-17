@@ -206,15 +206,13 @@ int comparison (int *gbe, int *mine, int *smse) {
 }
 
 
-int gbe;
-int mine;
-int smse;
 int temp(int *a, int gb, int min, int sms, int price)
 {
     switch(*a) {
         case 1: {
             printf("В вашем пакете: %d гигабайт\n", gb);
             printf("Сколько гигабайт из тарифа вы используете?\n");
+            int gbe;
             scanf("%d", &gbe);
             if (gbe < 0 || gbe > gb) {
                 system("clear");
@@ -222,12 +220,13 @@ int temp(int *a, int gb, int min, int sms, int price)
                 temp(a, gb, min, sms, price);
             }
             *a = *a + 1;
-            temp(a, gb, min, sms, price);
+            temp(a, gbe, min, sms, price);
             break;
         }
         case 2: {
             printf("В вашем пакете: %d минут звонков\n", min);
             printf("Сколько минут звонков из тарифа вы используете?\n");
+            int mine;
             scanf("%d", &mine);
             if (mine < 0 || mine > min) {
                 system("clear");
@@ -235,12 +234,13 @@ int temp(int *a, int gb, int min, int sms, int price)
                 temp(a, gb, min, sms, price);
             }
             *a = *a + 1;
-            temp(a, gb, min, sms, price);
+            temp(a, gb, mine, sms, price);
             break;
         }
         case 3: {
             printf("В вашем пакете: %d смс\n", sms);
             printf("Сколько смс сообщений из тарифа вы используете?\n");
+            int smse;
             scanf("%d", &smse);
             if (smse < 0 || smse > sms) {
                 system("clear");
@@ -248,12 +248,12 @@ int temp(int *a, int gb, int min, int sms, int price)
                 temp(a, gb, min, sms, price);
             }
             *a = *a + 1;
-            temp(a, gb, min, sms, price);
+            temp(a, gb, min, smse, price);
             break;
         }
         case 4: {
             system("clear");
-            comparison(&gbe, &mine, &smse);
+            comparison(&gb, &min, &sms);
         }
     }
 }
@@ -668,4 +668,5 @@ int main()
     greeting();
     printf(" Выберите пунт для продолжения\n1. Ознакомиться с операторами и тарифами\n2. Подобрать тариф на основе затрат\n");
     menu();
+    remove("csv_input/time.csv");
 }
