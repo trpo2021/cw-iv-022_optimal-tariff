@@ -1,0 +1,15 @@
+all: bin/optimal_tariff
+
+bin/optimal_tariff: obj/libfun.a obj/src/main/main.o
+	gcc -Wall -Werror -g -I src -o bin/optimal_tariff obj/src/functions/comparision.o obj/src/main/main.o
+obj/src/functions/comparision.o: src/functions/comparision.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/comparision.o src/functions/comparision.c
+obj/src/main/main.o: src/main/main.c
+	gcc -Wall -Werror -c -I src -o obj/src/main/main.o src/main/main.c
+obj/libfun.a:  obj/src/functions/comparision.o
+	ar rcs obj/libfun.a obj/src/functions/comparision.o
+
+PHONY : clean
+
+clean:
+		rm -rf obj/src/main/*.o bin/optimal_tariff.exe
