@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "lib.h"
 
 int comparison (int *gbe, int *mine, int *smse) {
     struct compareTariffs
