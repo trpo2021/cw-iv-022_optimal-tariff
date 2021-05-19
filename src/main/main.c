@@ -30,12 +30,12 @@ struct time
     int hours;
 };
 
-void error()
-{
-    system("clear");
-    printf(" Вы выбрали несуществующий пункт, давайте начнем с начала\n");
-    exit(0);
-}
+// void error()
+// {
+//     system("clear");
+//     printf(" Вы выбрали несуществующий пункт, давайте начнем с начала\n");
+//     exit(0);
+// }
 
 int temp(int *g, int gb, int min, int sms, int price)
 {
@@ -192,7 +192,7 @@ void menu()
         int b;
         scanf("%d", &b);
         if (b < 1 || b > 4)
-            error();
+            //error();
         else {
             system("clear");
             sprintf(path," Тарифы оператора %s", dir[b-1]);
@@ -213,7 +213,7 @@ void menu()
             print1(b);
             scanf("%d", &c);
             if(c < 1 || c > 4) {
-                error();
+                //error();
             }
             else {
                 system("clear");
@@ -227,7 +227,7 @@ void menu()
             print1(b);
             scanf("%d", &c);
             if(c < 1 || c > 4) {
-                error();
+                //error();
             }
             else {
                 system("clear");
@@ -241,7 +241,7 @@ void menu()
             print1(b);
             scanf("%d", &c);
             if(c < 1 || c > 4) {
-                error();
+                //error();
             }
             else {
                 system("clear");
@@ -255,7 +255,7 @@ void menu()
             print1(b);
             scanf("%d", &c);
             if(c < 1 || c > 4) {
-                error();
+                //error();
             }
             else {
                 system("clear");
@@ -263,11 +263,11 @@ void menu()
             }
         }
         else {
-            error();
+            //error();
         }
     }
     else {
-        error();
+        //error();
     }
 }
 
