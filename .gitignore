@@ -1,0 +1,4 @@
+bin/*
+obj/src/functions/*.o
+obj/src/main/*.o
+obj/*.a
