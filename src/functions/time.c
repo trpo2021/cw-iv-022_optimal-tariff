@@ -28,5 +28,5 @@ void greeting()
     else if(tm.hours >= 22 && tm.hours <= 5)
         printf(" Доброй ночи\n");
     fclose(f);
-    remove("time.csv");
+    remove("../csv_input/time.csv");
 }
