@@ -24,4 +24,4 @@ obj/libfun.a:  obj/src/functions/comparision.o obj/src/functions/data.o obj/src/
 PHONY : clean
 
 clean:
-		rm -rf obj/src/main/*.o bin/optimal_tariff.exe obj/src/functions/*.o obj/*.a
+		rm -rf obj/src/main/*.o bin/optimal_tariff obj/src/functions/*.o obj/*.a
