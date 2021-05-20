@@ -42,7 +42,7 @@ int comparison (int *gbe, int *mine, int *smse);
 
 int data(int b, int c);
 
-void menu();
+void menu(int a);
 
 void operators();
 
