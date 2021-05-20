@@ -1,6 +1,6 @@
 #include "lib.h"
 
-void menu()
+void menu(int a)
 {
     char dir[4][10]
           = {{"MTC\n"},
@@ -8,8 +8,6 @@ void menu()
             {"YOTA\n"},
             {"MEGAFON\n"}};
     char path[86];
-    int a;
-    scanf("%d", &a);
     if(a == 1) {
         system("clear");
         printf(" Выберите оператора для просмотра тарифа\n");
