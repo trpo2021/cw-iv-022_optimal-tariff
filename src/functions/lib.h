@@ -3,13 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "comparision.h"
-#include "data.h"
-#include "menu.h"
-#include "operators.h"
-#include "print1.h"
-#include "temp.h"
-#include "time.h"
 
 struct operators
 {
