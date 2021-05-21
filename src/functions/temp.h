@@ -1,1 +1,0 @@
-int temp(int *g, int gb, int min, int sms, int price);
