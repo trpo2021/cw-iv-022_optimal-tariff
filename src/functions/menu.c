@@ -8,10 +8,17 @@ void menu(int a)
         system("clear");
         printf(" Выберите оператора для просмотра тарифа\n");
         operators();
+        printf("5. Назад\n");
         int b;
         scanf("%d", &b);
-        if (b < 1 || b > 4)
-            printf("error");
+        if ((check(b, 5)) == 0) {
+            system("clear");
+            printf("Неверный ввод, повторите попытку%d\n", b);
+            sleep(3);
+            menu(1);
+        }
+        if (b == 5)
+            main();
         else {
             system("clear");
             sprintf(path, " Тарифы оператора %s", dir[b - 1]);
@@ -22,8 +29,11 @@ void menu(int a)
         system("clear");
         printf(" Пожалуйста, выберите своего текущего оператора\n");
         operators();
+        printf("5. Назад\n");
         int b, c;
         scanf("%d", &b);
+        if (b == 5)
+            main();
         if (b == 1) {
             system("clear");
             sprintf(path,
@@ -80,10 +90,6 @@ void menu(int a)
                 system("clear");
                 data(b, c);
             }
-        } else {
-            printf("error");
         }
-    } else {
-        printf("error");
     }
 }
