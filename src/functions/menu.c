@@ -2,6 +2,7 @@
 
 void menu(int a)
 {
+    int b;
     char dir[4][10] = {{"MTC\n"}, {"TELE2\n"}, {"YOTA\n"}, {"MEGAFON\n"}};
     char path[86];
     if (a == 1) {
@@ -9,14 +10,9 @@ void menu(int a)
         printf(" Выберите оператора для просмотра тарифа\n");
         operators();
         printf("5. Назад\n");
-        int b;
         scanf("%d", &b);
-        if ((check(b, 5)) == 0) {
-            system("clear");
-            printf("Неверный ввод, повторите попытку%d\n", b);
-            sleep(3);
+        if ((check(b, 5)) == 0)
             menu(1);
-        }
         if (b == 5)
             main();
         else {
