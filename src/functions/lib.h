@@ -1,8 +1,10 @@
 #pragma once
 
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 struct operators {
     char operator[25];
@@ -43,3 +45,7 @@ int temp(int* g, int gb, int min, int sms, int price);
 int hrs(void);
 
 void greeting();
+
+int main();
+
+int check(int a, int check);
