@@ -18,8 +18,10 @@ obj/src/functions/temp.o: src/functions/temp.c
 	gcc -Wall -Werror -c -I src -o obj/src/functions/temp.o src/functions/temp.c
 obj/src/functions/time.o: src/functions/time.c
 	gcc -Wall -Werror -c -I src -o obj/src/functions/time.o src/functions/time.c
-obj/libfun.a:  obj/src/functions/comparision.o obj/src/functions/data.o obj/src/functions/menu.o obj/src/functions/operators.o obj/src/functions/print1.o obj/src/functions/temp.o obj/src/functions/time.o
-	ar rcs obj/libfun.a obj/src/functions/comparision.o obj/src/functions/data.o obj/src/functions/menu.o obj/src/functions/operators.o obj/src/functions/print1.o obj/src/functions/temp.o obj/src/functions/time.o
+obj/src/functions/check.o: src/functions/check.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/check.o src/functions/check.c
+obj/libfun.a:  obj/src/functions/comparision.o obj/src/functions/data.o obj/src/functions/menu.o obj/src/functions/operators.o obj/src/functions/print1.o obj/src/functions/temp.o obj/src/functions/time.o obj/src/functions/check.o
+	ar rcs obj/libfun.a obj/src/functions/comparision.o obj/src/functions/data.o obj/src/functions/menu.o obj/src/functions/operators.o obj/src/functions/print1.o obj/src/functions/temp.o obj/src/functions/time.o obj/src/functions/check.o
 
 PHONY : clean
 
