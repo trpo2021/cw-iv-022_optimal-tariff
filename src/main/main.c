@@ -11,13 +11,9 @@ int main()
         system("clear");
         printf(" Выберите пунт для продолжения\n1. Ознакомиться с операторами "
                "и тарифами\n2. Подобрать тариф на основе затрат\n3. Выход\n");
-        scanf("%d", &start);
-        if ((check(start, 3)) == 0) {
-            system("clear");
-            printf("Неверный ввод, повторите попытку\n");
-            sleep(3);
+        start = check(3);
+        if(start == 10)
             main();
-        }
         if (start == 3) {
             system("clear");
             return 0;
