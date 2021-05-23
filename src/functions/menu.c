@@ -10,8 +10,8 @@ void menu(int a)
         printf(" Выберите оператора для просмотра тарифа\n");
         operators();
         printf("5. Назад\n");
-        scanf("%d", &b);
-        if ((check(b, 5)) == 0)
+        b = check(5);
+        if(b > 5)
             menu(1);
         if (b == 5)
             main();
