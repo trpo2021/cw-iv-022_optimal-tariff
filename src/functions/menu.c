@@ -28,6 +28,9 @@ void menu(int a)
                 }
                 if (tar == 2) {
                     system("clear");
+                    printf("Всего хорошего!\n");
+                    sleep(3);
+                    system("clear");
                     return;
                 }
             }

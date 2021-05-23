@@ -2,22 +2,21 @@
 
 int main()
 {
-    int start, ch;
+    int start;
     system("clear");
     hrs();
     greeting();
-    printf("Нажмите любую клавишу для запуска программы\n");
-    if ((ch = getchar()) != EOF) {
+    printf(" Выберите пункт для начала работы с программой\n1. Ознакомиться с операторами "
+            "и тарифами\n2. Подобрать тариф на основе затрат\n3. Выход\n");
+    start = check(3);
+    if (start == 10)
+        main();
+    if (start == 3) {
         system("clear");
-        printf(" Выберите пунт для продолжения\n1. Ознакомиться с операторами "
-               "и тарифами\n2. Подобрать тариф на основе затрат\n3. Выход\n");
-        start = check(3);
-        if (start == 10)
-            main();
-        if (start == 3) {
-            system("clear");
-            return 0;
-        }
+        printf("Всего хорошего!\n");
+        sleep(3);
+        system("clear");
+        return 0;
     }
     menu(start);
 }
