@@ -11,7 +11,7 @@ void menu(int a)
         operators();
         printf("5. Назад\n");
         b = check(5);
-        if(b > 5)
+        if (b > 5)
             menu(1);
         if (b == 5)
             main();
