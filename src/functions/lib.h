@@ -48,4 +48,4 @@ void greeting();
 
 int main();
 
-int check(int a, int check);
+int check(int check);
