@@ -17,7 +17,8 @@ int comparison(int* gbe, int* mine, int* smse)
         char priceHead[35];
         int priceValue;
     };
-
+    
+    int i;
     float gbPercent;
     float minPercent;
     float smsPercent;
@@ -25,8 +26,79 @@ int comparison(int* gbe, int* mine, int* smse)
     FILE* tariff;
 
     struct compareTariffs checking[16];
+    char operators[4] = {"MTC", "TELE2", "YOTA", "MEGAFON"};
+    char csv[4] = {"1.csv", "2.csv", "3.csv", "4.csv"};
+    char path[50];
+    //MTC
+    for (i = 0; i < 4; i++) {
+            sprintf(path, "../csv_input/%s/%c", operators[1], csv[i]);
+            tariff = fopen(path, "r");
+            fscanf(tariff,
+                "%s%s%d%s%d%s%d%s%d",
+                checking[i].tname,
+                checking[i].gbHead,
+                &checking[i].gbValue,
+                checking[i].minHead,
+                &checking[i].minValue,
+                checking[i].smsHead,
+                &checking[i].smsValue,
+                checking[i].priceHead,
+                &checking[i].priceValue);
+            fclose(tariff);
+    }
+    //TELE2
+    for (i = 4; i < 8; i++) {
+            sprintf(path, "../csv_input/%s/%c", operators[2], csv[i-4]);
+            tariff = fopen(path, "r");
+            fscanf(tariff,
+                "%s%s%d%s%d%s%d%s%d",
+                checking[i].tname,
+                checking[i].gbHead,
+                &checking[i].gbValue,
+                checking[i].minHead,
+                &checking[i].minValue,
+                checking[i].smsHead,
+                &checking[i].smsValue,
+                checking[i].priceHead,
+                &checking[i].priceValue);
+            fclose(tariff);
+    }
 
-    //МТС
+    for (i = 8; i < 12; i++) {
+            sprintf(path, "../csv_input/%s/%c", operators[3], csv[i-8]);
+            tariff = fopen(path, "r");
+            fscanf(tariff,
+                "%s%s%d%s%d%s%d%s%d",
+                checking[i].tname,
+                checking[i].gbHead,
+                &checking[i].gbValue,
+                checking[i].minHead,
+                &checking[i].minValue,
+                checking[i].smsHead,
+                &checking[i].smsValue,
+                checking[i].priceHead,
+                &checking[i].priceValue);
+            fclose(tariff);
+    }
+
+    for (i = 12; i < 16; i++) {
+            sprintf(path, "../csv_input/%s/%c", operators[4], csv[i-12]);
+            tariff = fopen(path, "r");
+            fscanf(tariff,
+                "%s%s%d%s%d%s%d%s%d",
+                checking[i].tname,
+                checking[i].gbHead,
+                &checking[i].gbValue,
+                checking[i].minHead,
+                &checking[i].minValue,
+                checking[i].smsHead,
+                &checking[i].smsValue,
+                checking[i].priceHead,
+                &checking[i].priceValue);
+            fclose(tariff);
+    }
+
+   /* //МТС
     tariff = fopen("../csv_input/MTC/1.csv", "r");
     fscanf(tariff,
            "%s%s%d%s%d%s%d%s%d",
@@ -252,7 +324,7 @@ int comparison(int* gbe, int* mine, int* smse)
            &checking[15].smsValue,
            checking[15].priceHead,
            &checking[15].priceValue);
-    fclose(tariff);
+    fclose(tariff);*/
 
     struct compareTariffs minRecommend;
     unsigned int counter;
