@@ -2,6 +2,9 @@
 
 int comparison(int* gbe, int* mine, int* smse)
 {
+    printf("gbe = %d", *gbe);
+    printf("mine = %d", *mine);
+    printf("smse = %d", *smse);
     struct compareTariffs {
         char tname[25];
 
@@ -26,12 +29,12 @@ int comparison(int* gbe, int* mine, int* smse)
     FILE* tariff;
 
     struct compareTariffs checking[16];
-    char operators[4] = {"MTC", "TELE2", "YOTA", "MEGAFON"};
+    //char operators[4] = {"MTC", "TELE2", "YOTA", "MEGAFON"};
     int csv[4] = {1, 2, 3, 4};
     char path[50];
     //MTC
     for (i = 0; i < 4; i++) {
-            sprintf(path, "../csv_input/%s/%c", operators[1], csv[i]);
+            sprintf(path, "../csv_input/MTC/%c", csv[i]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
@@ -48,7 +51,7 @@ int comparison(int* gbe, int* mine, int* smse)
     }
     //TELE2
     for (i = 4; i < 8; i++) {
-            sprintf(path, "../csv_input/%s/%c", operators[2], csv[i-4]);
+            sprintf(path, "../csv_input/TELE2/%c", csv[i-4]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
@@ -65,7 +68,7 @@ int comparison(int* gbe, int* mine, int* smse)
     }
 
     for (i = 8; i < 12; i++) {
-            sprintf(path, "../csv_input/%s/%c", operators[3], csv[i-8]);
+            sprintf(path, "../csv_input/YOTA/%c", csv[i-8]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
@@ -82,7 +85,7 @@ int comparison(int* gbe, int* mine, int* smse)
     }
 
     for (i = 12; i < 16; i++) {
-            sprintf(path, "../csv_input/%s/%c", operators[4], csv[i-12]);
+            sprintf(path, "../csv_input/MEGAFON/%c", csv[i-12]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
@@ -328,7 +331,6 @@ int comparison(int* gbe, int* mine, int* smse)
 
     struct compareTariffs minRecommend;
     unsigned int counter;
-    unsigned int i;
 
     for (i = 0; i < 16; i++) {
         if (i == 0) {
