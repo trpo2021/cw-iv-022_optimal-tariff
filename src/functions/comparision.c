@@ -27,7 +27,7 @@ int comparison(int* gbe, int* mine, int* smse)
 
     struct compareTariffs checking[16];
     char operators[4] = {"MTC", "TELE2", "YOTA", "MEGAFON"};
-    char csv[4] = {"1.csv", "2.csv", "3.csv", "4.csv"};
+    int csv[4] = {1, 2, 3, 4};
     char path[50];
     //MTC
     for (i = 0; i < 4; i++) {
