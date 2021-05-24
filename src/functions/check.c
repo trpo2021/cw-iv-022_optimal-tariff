@@ -6,12 +6,12 @@ int check(int check)
     int launch = 0;
     ;
     scanf(" %[^\n]", start);
-    if(start[0] == '0'){
+    if (start[0] == '0') {
         system("clear");
-            printf("Неверный ввод, повторите попытку\n");
-            sleep(3);
-            free(start);
-            return -1;
+        printf("Неверный ввод, повторите попытку\n");
+        sleep(3);
+        free(start);
+        return -1;
     }
     if ((isdigit(start[0]) != 0) && (isdigit(start[1]) != 0)
         && (isdigit(start[2]) != 0) && (start[4] == 0)) {
