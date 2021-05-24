@@ -13,11 +13,12 @@ int temp(int* g, int gb, int min, int sms, int price)
             printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с "
                    "начала\n");
             temp(g, gb, min, sms, price);
+            return 0;
         }
         system("clear");
         *g = *g + 1;
         temp(g, gbe, min, sms, price);
-        break;
+        return 0;
     }
     case 2: {
         printf("В вашем пакете: %d минут звонков\n", min);
@@ -29,11 +30,12 @@ int temp(int* g, int gb, int min, int sms, int price)
             printf(" Вы ввели неккоректное значение минут, давайте начнем с "
                    "начала\n");
             temp(g, gb, min, sms, price);
+            return 0;
         }
         system("clear");
         *g = *g + 1;
         temp(g, gb, mine, sms, price);
-        break;
+        return 0;
     }
     case 3: {
         printf("В вашем пакете: %d смс\n", sms);
@@ -45,10 +47,11 @@ int temp(int* g, int gb, int min, int sms, int price)
             printf(" Вы ввели неккоректное значение смс, давайте начнем с "
                    "начала\n");
             temp(g, gb, min, sms, price);
+            return 0;
         }
         *g = *g + 1;
         temp(g, gb, min, smse, price);
-        break;
+        return 0;
     }
     case 4: {
         system("clear");
