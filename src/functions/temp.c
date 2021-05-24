@@ -7,13 +7,14 @@ int temp(int* g, int gb, int min, int sms, int price)
         printf("В вашем пакете: %d гигабайт\n", gb);
         printf("Сколько гигабайт из тарифа вы используете?\n");
         int gbe;
-        scanf("%d", &gbe);
+        gbe = check(gb);
         if (gbe < 0 || gbe > gb) {
             system("clear");
             printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с "
                    "начала\n");
             temp(g, gb, min, sms, price);
         }
+        system("clear");
         *g = *g + 1;
         temp(g, gbe, min, sms, price);
         break;
@@ -22,13 +23,14 @@ int temp(int* g, int gb, int min, int sms, int price)
         printf("В вашем пакете: %d минут звонков\n", min);
         printf("Сколько минут звонков из тарифа вы используете?\n");
         int mine;
-        scanf("%d", &mine);
+        mine = check(min);
         if (mine < 0 || mine > min) {
             system("clear");
             printf(" Вы ввели неккоректное значение минут, давайте начнем с "
                    "начала\n");
             temp(g, gb, min, sms, price);
         }
+        system("clear");
         *g = *g + 1;
         temp(g, gb, mine, sms, price);
         break;
@@ -37,7 +39,7 @@ int temp(int* g, int gb, int min, int sms, int price)
         printf("В вашем пакете: %d смс\n", sms);
         printf("Сколько смс сообщений из тарифа вы используете?\n");
         int smse;
-        scanf("%d", &smse);
+        smse = check(sms);
         if (smse < 0 || smse > sms) {
             system("clear");
             printf(" Вы ввели неккоректное значение смс, давайте начнем с "
