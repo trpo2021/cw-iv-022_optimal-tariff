@@ -1,6 +1,6 @@
 #include "lib.h"
 
-int comparison(int* gbe, int* mine, int* smse)
+int comparison(int* gbe, int* mine, int* smse, int* price)
 {
     printf("gbe = %d", *gbe);
     printf("mine = %d", *mine);
