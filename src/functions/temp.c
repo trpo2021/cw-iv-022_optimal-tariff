@@ -49,6 +49,20 @@ int temp(int* g, int gb, int min, int sms, int price)
         break;
     }
     case 4: {
+        printf("Стоимость вашего пакета: %d\n", price);
+        printf("Какую стоимость вы предпочитаете?\n");
+        int pricee;
+        scanf("%d", &pricee);
+        if (pricee == 0) {
+            system("clear");
+            printf("Бесплатных тарифов не найдено, давайте начнем заново\n");
+            temp(g, gb, min, sms, price);
+        }
+        *g = *g + 1;
+        temp(g, gb, min, sms, pricee);
+        break;
+    }
+    case 5: {
         system("clear");
         comparison(&gb, &min, &sms, &price);
     }
