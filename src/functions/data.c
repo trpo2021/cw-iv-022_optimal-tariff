@@ -8,6 +8,8 @@ int data(int b, int c)
     char path[30];
     sprintf(path, "../csv_input/%s/%d.csv", dir[b - 1], c);
     f = fopen(path, "r");
+    if (f == NULL)
+        return -1;
     fscanf(f,
            "%s%s%d%s%d%s%d%s%d",
            pr.tf_name,
