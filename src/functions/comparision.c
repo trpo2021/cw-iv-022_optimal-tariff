@@ -29,11 +29,12 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     FILE* tariff;
 
     struct compareTariffs checking[16];
-    int csv[4] = {1, 2, 3, 4};
-    char path[50];
+    //char tariffs[4][8] = {{"MTC"}, {"TELE2"}, {"YOTA"}, {"MEGAFON"}};
+    char path[30];
+    char csv[4] = {1, 2, 3, 4};
     //MTC
     for (i = 0; i < 4; i++) {
-            sprintf(path, "../csv_input/MTC/%d", csv[i]);
+            sprintf(path, "../csv_input/MTC/%d.csv", csv[i]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
@@ -50,7 +51,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
     //TELE2
     for (i = 4; i < 8; i++) {
-            sprintf(path, "../csv_input/TELE2/%d", csv[i-4]);
+            sprintf(path, "../csv_input/TELE2/%d.csv", csv[i-4]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
@@ -67,7 +68,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
 
     for (i = 8; i < 12; i++) {
-            sprintf(path, "../csv_input/YOTA/%d", csv[i-8]);
+            sprintf(path, "../csv_input/MEGAFON/%d.csv", csv[i-8]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
@@ -84,7 +85,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
 
     for (i = 12; i < 16; i++) {
-            sprintf(path, "../csv_input/MEGAFON/%d", csv[i-12]);
+            sprintf(path, "../csv_input/YOTA/%d.csv", csv[i-12]);
             tariff = fopen(path, "r");
             fscanf(tariff,
                 "%s%s%d%s%d%s%d%s%d",
