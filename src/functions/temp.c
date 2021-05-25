@@ -55,9 +55,14 @@ int temp(int* g, int gb, int min, int sms, int price)
     }
     case 4: {
         printf("Стоимость вашего пакета: %d\n", price);
-        printf("Какую стоимость вы предпочитаете?\n");
-        int pricee;
-        scanf("%d", &pricee);
+        printf("Какую стоимость вы предпочитаете?Максимальная возможная стоимость тарифа - 520р\n");
+        int pricee = check(500);
+        if(pricee == -1) {
+            system("clear");
+            printf(" Вы ввели неккоректное значение смс, давайте начнем с "
+                   "начала\n");
+            temp(g, gb, min, sms, price);
+        }
         if (pricee == 0) {
             system("clear");
             printf("Бесплатных тарифов не найдено, давайте начнем заново\n");
