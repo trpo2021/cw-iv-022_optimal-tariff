@@ -22,9 +22,8 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     };
     
     int i;
-    float gbPercent;
-    float minPercent;
-    float smsPercent;
+    float gbPercent, minPercent, smsPercent, pricePercent;
+    //float minGbPercent, minMinPercent, minSmsPercent, minPricePercent;
 
     FILE* tariff;
 
@@ -109,24 +108,33 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
             minRecommend.gbValue = 1000;
             minRecommend.smsValue = 1000;
             minRecommend.minValue = 1000;
+            minRecommend.priceValue = 1000;
+
         }
         gbPercent = ((float)*gbe / (float)checking[i].gbValue) * 100;
         minPercent = ((float)*mine / (float)checking[i].minValue) * 100;
         smsPercent = ((float)*smse / (float)checking[i].smsValue) * 100;
-        if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue)
-            && (gbPercent > 20)) {
-            counter++;
-        }
-        if ((minPercent < 100) && (checking[i].minValue < minRecommend.minValue)
-            && (minPercent > 20)) {
-            counter++;
-        }
-        if ((smsPercent < 100) && (checking[i].smsValue < minRecommend.smsValue)
-            && (smsPercent > 20)) {
-            counter++;
-        }
+        pricePercent = ((float)*price / (float)checking[i].priceValue) * 100;
 
-        if (counter == 3) {
+        if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue)) 
+        {
+            counter++;
+        }
+        if ((minPercent < 100) && (checking[i].minValue < 
+            minRecommend.minValue)) {
+            counter++;
+        }
+        if ((smsPercent < 100) && (checking[i].smsValue < 
+            minRecommend.smsValue)) {
+            counter++;
+        }
+        if ((pricePercent <= 100) && (checking[i].priceValue <= 
+            minRecommend.priceValue)) {
+            counter++;
+        }
+        
+        if (counter == 4) {
+            printf("gbpercent = %f\n", gbPercent);
             minRecommend = checking[i];
             counter = 0;
             gbPercent = 0;
