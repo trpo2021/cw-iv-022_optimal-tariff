@@ -4,17 +4,17 @@ int check(int check)
 {
     char* start = malloc(sizeof(char) * 10);
     int launch = 0;
-    ;
     scanf(" %[^\n]", start);
     if (start[0] == '0') {
-        system("clear");
+        // system("clear");
         printf("Неверный ввод, повторите попытку\n");
         sleep(3);
+        // system("clear");
         free(start);
         return -1;
     }
     if ((isdigit(start[0]) != 0) && (isdigit(start[1]) != 0)
-        && (isdigit(start[2]) != 0) && (start[4] == 0)) {
+        && (isdigit(start[2]) != 0) && (strlen(start) == 3)) {
         launch = 100 * (start[0] - '0');
         launch = launch + 10 * (start[1] - '0');
         launch = launch + (start[2] - '0');
@@ -22,9 +22,10 @@ int check(int check)
             free(start);
             return launch;
         } else {
-            system("clear");
+            // system("clear");
             printf("Неверный ввод, повторите попытку\n");
             sleep(3);
+            // system("clear");
             free(start);
             return -1;
         }
@@ -37,7 +38,6 @@ int check(int check)
             free(start);
             return launch;
         } else {
-            system("clear");
             printf("Неверный ввод, повторите попытку\n");
             sleep(3);
             free(start);
@@ -46,7 +46,6 @@ int check(int check)
     }
 
     if ((isdigit(start[0]) == 0) || start[1] != 0) {
-        system("clear");
         printf("Неверный ввод, повторите попытку\n");
         sleep(3);
         free(start);
@@ -57,7 +56,6 @@ int check(int check)
         free(start);
         return launch;
     } else {
-        system("clear");
         printf("Неверный ввод, повторите попытку\n");
         sleep(3);
         free(start);
