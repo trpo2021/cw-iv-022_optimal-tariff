@@ -30,7 +30,7 @@ struct time {
     int hours;
 };
 
-int comparison(int* gbe, int* mine, int* smse);
+int comparison(int* gbe, int* mine, int* smse, int* price);
 
 int data(int b, int c);
 
