@@ -54,13 +54,14 @@ int temp(int* g, int gb, int min, int sms, int price)
         return 0;
     }
     case 4: {
+        system("clear");
         printf("Стоимость вашего пакета: %d\n", price);
         printf("Какую стоимость вы предпочитаете?Максимальная возможная "
                "стоимость тарифа - 520р\n");
         int pricee = check(500);
         if (pricee == -1) {
             system("clear");
-            printf(" Вы ввели неккоректное значение смс, давайте начнем с "
+            printf(" Вы ввели неккоректное значение цены, давайте начнем с "
                    "начала\n");
             temp(g, gb, min, sms, price);
         }
