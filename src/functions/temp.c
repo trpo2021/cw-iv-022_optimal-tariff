@@ -10,8 +10,8 @@ int temp(int* g, int gb, int min, int sms, int price)
         gbe = check(gb);
         if (gbe < 0 || gbe > gb) {
             system("clear");
-            printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с "
-                   "начала\n");
+            //printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с "
+                   //"начала\n");
             temp(g, gb, min, sms, price);
             return 0;
         }
@@ -27,8 +27,8 @@ int temp(int* g, int gb, int min, int sms, int price)
         mine = check(min);
         if (mine < 0 || mine > min) {
             system("clear");
-            printf(" Вы ввели неккоректное значение минут, давайте начнем с "
-                   "начала\n");
+            //printf(" Вы ввели неккоректное значение минут, давайте начнем с "
+                   //"начала\n");
             temp(g, gb, min, sms, price);
             return 0;
         }
@@ -44,8 +44,8 @@ int temp(int* g, int gb, int min, int sms, int price)
         smse = check(sms);
         if (smse < 0 || smse > sms) {
             system("clear");
-            printf(" Вы ввели неккоректное значение смс, давайте начнем с "
-                   "начала\n");
+            //printf(" Вы ввели неккоректное значение смс, давайте начнем с "
+                   //"начала\n");
             temp(g, gb, min, sms, price);
             return 0;
         }
@@ -61,8 +61,8 @@ int temp(int* g, int gb, int min, int sms, int price)
         int pricee = check(500);
         if (pricee == -1) {
             system("clear");
-            printf(" Вы ввели неккоректное значение цены, давайте начнем с "
-                   "начала\n");
+            //printf(" Вы ввели неккоректное значение цены, давайте начнем с "
+                   //"начала\n");
             temp(g, gb, min, sms, price);
         }
         if (pricee == 0) {
