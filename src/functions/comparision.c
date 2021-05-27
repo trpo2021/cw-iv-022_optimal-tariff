@@ -19,7 +19,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     };
 
     int i;
-    float gbPercent, minPercent, smsPercent, pricePercent;
+    float gbPercent, minPercent, smsPercent;
 
     FILE* tariff;
 
@@ -106,7 +106,6 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         gbPercent = ((float)*gbe / (float)checking[i].gbValue) * 100;
         minPercent = ((float)*mine / (float)checking[i].minValue) * 100;
         smsPercent = ((float)*smse / (float)checking[i].smsValue) * 100;
-        pricePercent = ((float)*price / (float)checking[i].priceValue) * 100;
 
         int different = minRecommend.priceValue - checking[i].priceValue;
         if (different < 0) {
@@ -124,7 +123,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
             && (checking[i].smsValue < minRecommend.smsValue)) {
             counter++;
         }
-        if ((pricePercent <= 100)
+        if ((checking[i].priceValue <= *price)
             && (checking[i].priceValue < minRecommend.priceValue)) {
             counter++;
         }
