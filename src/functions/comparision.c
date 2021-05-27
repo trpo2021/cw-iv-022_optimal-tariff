@@ -124,7 +124,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
             && (checking[i].smsValue < minRecommend.smsValue)) {
             counter++;
         }
-        if ((pricePercent <= 100)
+        if ((pricePercent < *price)
             && (checking[i].priceValue < minRecommend.priceValue)) {
             counter++;
         }
