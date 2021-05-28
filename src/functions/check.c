@@ -6,10 +6,10 @@ int check(int check)
     int launch = 0;
     scanf(" %[^\n]", start);
     if (start[0] == '0') {
-        // system("clear");
+        system("clear");
         printf("Неверный ввод, повторите попытку\n");
         sleep(3);
-        // system("clear");
+        system("clear");
         free(start);
         return -1;
     }
@@ -22,10 +22,10 @@ int check(int check)
             free(start);
             return launch;
         } else {
-            // system("clear");
+            system("clear");
             printf("Неверный ввод, повторите попытку\n");
             sleep(3);
-            // system("clear");
+            system("clear");
             free(start);
             return -1;
         }
