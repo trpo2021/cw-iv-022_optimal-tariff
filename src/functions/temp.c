@@ -10,7 +10,8 @@ int temp(int* g, int gb, int min, int sms, int price)
         gbe = check(gb);
         if (gbe < 0 || gbe > gb) {
             system("clear");
-             printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с начала\n");
+            printf(" Вы ввели неккоректное значение гигабайт, давайте начнем с "
+                   "начала\n");
             temp(g, gb, min, sms, price);
             return 0;
         }
@@ -26,7 +27,8 @@ int temp(int* g, int gb, int min, int sms, int price)
         mine = check(min);
         if (mine < 0 || mine > min) {
             system("clear");
-             printf(" Вы ввели неккоректное значение минут, давайте начнем с начала\n");
+            printf(" Вы ввели неккоректное значение минут, давайте начнем с "
+                   "начала\n");
             temp(g, gb, min, sms, price);
             return 0;
         }
@@ -42,7 +44,8 @@ int temp(int* g, int gb, int min, int sms, int price)
         smse = check(sms);
         if (smse < 0 || smse > sms) {
             system("clear");
-            printf(" Вы ввели неккоректное значение смс, давайте начнем с начала\n");
+            printf(" Вы ввели неккоректное значение смс, давайте начнем с "
+                   "начала\n");
             temp(g, gb, min, sms, price);
             return 0;
         }
@@ -53,7 +56,8 @@ int temp(int* g, int gb, int min, int sms, int price)
     }
     case 4: {
         printf("Стоимость вашего пакета: %d\n", price);
-        printf("Какую стоимость вы предпочитаете?Максимальная возможная стоимость тарифа - 520р, минимальная - 210р\n");
+        printf("Какую стоимость вы предпочитаете?Максимальная возможная "
+               "стоимость тарифа - 520р, минимальная - 210р\n");
         int pricee = check(1000);
         if (pricee == -1) {
             system("clear");
@@ -61,7 +65,7 @@ int temp(int* g, int gb, int min, int sms, int price)
             temp(g, gb, min, sms, price);
             return 0;
         }
-        if(pricee > 520 || pricee < 210) {
+        if (pricee > 520 || pricee < 210) {
             system("clear");
             printf("Тарифов в таком ценовом диапозоне не найдено.\n");
             temp(g, gb, min, sms, price);
