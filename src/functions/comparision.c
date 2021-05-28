@@ -94,6 +94,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
 
     struct compareTariffs minRecommend;
+    struct compareTariffs minRecommendReserve;
     unsigned int counter;
 
     for (i = 0; i < 16; i++) {
@@ -123,13 +124,19 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
             && (checking[i].smsValue < minRecommend.smsValue)) {
             counter++;
         }
-        if ((checking[i].priceValue <= *price)
+        if ((checking[i].priceValue <= *price + 30)
             && (checking[i].priceValue < minRecommend.priceValue)) {
             counter++;
         }
 
         if (counter == 4) {
             minRecommend = checking[i];
+            counter = 0;
+            gbPercent = 0;
+            minPercent = 0;
+            smsPercent = 0;
+        } else if (counter == 3) {
+            minRecommendReserve = checking[i];
             counter = 0;
             gbPercent = 0;
             minPercent = 0;
@@ -142,12 +149,21 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         }
     }
 
-    printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
-           minRecommend.tname,
-           minRecommend.gbValue,
-           minRecommend.minValue,
-           minRecommend.smsValue,
-           minRecommend.priceValue);
-
+    if ((minRecommend.gbValue == 1000) || (minRecommend.minValue == 1000)
+        || (minRecommend.smsValue == 1000)) {
+        printf("Тариф (резерв): %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
+               minRecommendReserve.tname,
+               minRecommendReserve.gbValue,
+               minRecommendReserve.minValue,
+               minRecommendReserve.smsValue,
+               minRecommendReserve.priceValue);
+    } else {
+        printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
+               minRecommend.tname,
+               minRecommend.gbValue,
+               minRecommend.minValue,
+               minRecommend.smsValue,
+               minRecommend.priceValue);
+    }
     return 0;
 }
