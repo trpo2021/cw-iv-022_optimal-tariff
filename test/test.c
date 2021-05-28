@@ -49,3 +49,10 @@ CTEST(check_temp, check_sms)
     const int result = check(200);
     ASSERT_EQUAL(expected, result);
 }
+
+CTEST(check_temp, check_sms2)
+{
+    const int expected = 100;
+    const int result = check(100);
+    ASSERT_EQUAL(expected, result);
+}
