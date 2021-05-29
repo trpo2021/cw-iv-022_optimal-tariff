@@ -26,8 +26,9 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     struct compareTariffs checking[16];
     char path[30];
     char csv[4] = {1, 2, 3, 4};
+    char operators[4][8] = {"MTC", "MEGAFON", "YOTA", "TELE2"};
     for (i = 0; i < 4; i++) {
-        sprintf(path, "../csv_input/MTC/%d.csv", csv[i]);
+        sprintf(path, "../csv_input/%s/%d.csv", operators[0], csv[i]);
         tariff = fopen(path, "r");
         fscanf(tariff,
                "%s%s%d%s%d%s%d%s%d",
@@ -43,7 +44,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         fclose(tariff);
     }
     for (i = 4; i < 8; i++) {
-        sprintf(path, "../csv_input/TELE2/%d.csv", csv[i - 4]);
+        sprintf(path, "../csv_input/%s/%d.csv", operators[1], csv[i - 4]);
         tariff = fopen(path, "r");
         fscanf(tariff,
                "%s%s%d%s%d%s%d%s%d",
@@ -60,7 +61,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
 
     for (i = 8; i < 12; i++) {
-        sprintf(path, "../csv_input/MEGAFON/%d.csv", csv[i - 8]);
+        sprintf(path, "../csv_input/%s/%d.csv", operators[2], csv[i - 8]);
         tariff = fopen(path, "r");
         fscanf(tariff,
                "%s%s%d%s%d%s%d%s%d",
@@ -77,7 +78,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
 
     for (i = 12; i < 16; i++) {
-        sprintf(path, "../csv_input/YOTA/%d.csv", csv[i - 12]);
+        sprintf(path, "../csv_input/%s/%d.csv", operators[3], csv[i - 12]);
         tariff = fopen(path, "r");
         fscanf(tariff,
                "%s%s%d%s%d%s%d%s%d",
@@ -94,6 +95,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
 
     struct compareTariffs minRecommend;
+    struct compareTariffs minRecommendReserve;
     unsigned int counter;
 
     for (i = 0; i < 16; i++) {
@@ -115,7 +117,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue)) {
             counter++;
         }
-        if ((minPercent = 100)
+        if ((minPercent < 100)
             && (checking[i].minValue < minRecommend.minValue)) {
             counter++;
         }
@@ -123,31 +125,42 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
             && (checking[i].smsValue < minRecommend.smsValue)) {
             counter++;
         }
-        if ((checking[i].priceValue <= *price)
+        if ((checking[i].priceValue <= *price + 30)
             && (checking[i].priceValue < minRecommend.priceValue)) {
             counter++;
         }
 
         if (counter == 4) {
             minRecommend = checking[i];
-            counter = 0;
-            gbPercent = 0;
-            minPercent = 0;
-            smsPercent = 0;
-        } else {
-            counter = 0;
-            gbPercent = 0;
-            minPercent = 0;
-            smsPercent = 0;
+        } else if (
+                (counter == 3) && (checking[i].priceValue <= *price + 50)
+                && (checking[i].minValue < *mine)
+                && (checking[i].gbValue < *gbe)
+                && (checking[i].smsValue < *smse)) {
+            minRecommendReserve = checking[i];
         }
+        counter = 0;
+        gbPercent = 0;
+        minPercent = 0;
+        smsPercent = 0;
     }
 
-    printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
-           minRecommend.tname,
-           minRecommend.gbValue,
-           minRecommend.minValue,
-           minRecommend.smsValue,
-           minRecommend.priceValue);
-
+    if ((minRecommend.gbValue == 1000) || (minRecommend.minValue == 1000)
+        || (minRecommend.smsValue == 1000)) {
+        printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n "
+               "Цена: %d\n\n",
+               minRecommendReserve.tname,
+               minRecommendReserve.gbValue,
+               minRecommendReserve.minValue,
+               minRecommendReserve.smsValue,
+               minRecommendReserve.priceValue);
+    } else {
+        printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
+               minRecommend.tname,
+               minRecommend.gbValue,
+               minRecommend.minValue,
+               minRecommend.smsValue,
+               minRecommend.priceValue);
+    }
     return 0;
 }
