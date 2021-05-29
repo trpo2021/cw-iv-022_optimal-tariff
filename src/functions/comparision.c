@@ -26,8 +26,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     struct compareTariffs checking[16];
     char path[30];
     char csv[4] = {1, 2, 3, 4};
-    char operators[4][8]
-            = {"MTC", "MEGAFON", "YOTA", "TELE2"}; 
+    char operators[4][8] = {"MTC", "MEGAFON", "YOTA", "TELE2"};
     for (i = 0; i < 4; i++) {
         sprintf(path, "../csv_input/%s/%d.csv", operators[0], csv[i]);
         tariff = fopen(path, "r");
@@ -133,26 +132,17 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
 
         if (counter == 4) {
             minRecommend = checking[i];
-            counter = 0;
-            gbPercent = 0;
-            minPercent = 0;
-            smsPercent = 0;
         } else if (
                 (counter == 3) && (checking[i].priceValue <= *price + 50)
                 && (checking[i].minValue < *mine)
                 && (checking[i].gbValue < *gbe)
                 && (checking[i].smsValue < *smse)) {
             minRecommendReserve = checking[i];
-            counter = 0;
-            gbPercent = 0;
-            minPercent = 0;
-            smsPercent = 0;
-        } else {
-            counter = 0;
-            gbPercent = 0;
-            minPercent = 0;
-            smsPercent = 0;
         }
+        counter = 0;
+        gbPercent = 0;
+        minPercent = 0;
+        smsPercent = 0;
     }
 
     if ((minRecommend.gbValue == 1000) || (minRecommend.minValue == 1000)
