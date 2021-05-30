@@ -109,11 +109,6 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         minPercent = ((float)*mine / (float)checking[i].minValue) * 100;
         smsPercent = ((float)*smse / (float)checking[i].smsValue) * 100;
 
-        int different = minRecommend.priceValue - checking[i].priceValue;
-        if (different < 0) {
-            different *= -1;
-        }
-
         if ((gbPercent < 100) && (checking[i].gbValue < minRecommend.gbValue)) {
             counter++;
         }
@@ -133,7 +128,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         if (counter == 4) {
             minRecommend = checking[i];
         } else if (
-                (counter == 3) && (checking[i].priceValue <= *price + 50)
+                (counter == 3) && (checking[i].priceValue <= *price + 90)
                 && (checking[i].minValue < *mine)
                 && (checking[i].gbValue < *gbe)
                 && (checking[i].smsValue < *smse)) {
@@ -154,6 +149,8 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
                minRecommendReserve.minValue,
                minRecommendReserve.smsValue,
                minRecommendReserve.priceValue);
+    } else if ((minRecommend.minValue == 0) || (minRecommend.smsValue == 0)) {
+        printf("Более подходящих тарифов в нашей базе не найдено \n");
     } else {
         printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
                minRecommend.tname,
