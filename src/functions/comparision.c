@@ -140,8 +140,9 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         smsPercent = 0;
     }
 
-    if ((minRecommend.gbValue == 1000) || (minRecommend.minValue == 1000)
-        || (minRecommend.smsValue == 1000)) {
+    if ((minRecommend.gbValue == 1000) && (minRecommend.minValue == 1000)
+        && (minRecommend.smsValue == 1000) && (minRecommendReserve.gbValue < 51)
+        && (minRecommendReserve.gbValue > 0)) {
         printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n "
                "Цена: %d\n\n",
                minRecommendReserve.tname,
@@ -149,7 +150,10 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
                minRecommendReserve.minValue,
                minRecommendReserve.smsValue,
                minRecommendReserve.priceValue);
-    } else if ((minRecommend.minValue == 0) || (minRecommend.smsValue == 0)) {
+    } else if (
+            ((minRecommendReserve.gbValue > 51)
+             || (minRecommendReserve.gbValue <= 0))
+            && (minRecommend.gbValue == 1000)) {
         printf("Более подходящих тарифов в нашей базе не найдено \n");
     } else {
         printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
