@@ -3,6 +3,7 @@
 int comparison(int* gbe, int* mine, int* smse, int* price)
 {
     struct compareTariffs {
+        char* operatorName[10];
         char tname[25];
 
         char gbHead[20];
@@ -24,10 +25,11 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     FILE* tariff;
 
     struct compareTariffs checking[16];
-    char path[30];
+    char path[50];
     char csv[4] = {1, 2, 3, 4};
     char operators[4][8] = {"MTC", "MEGAFON", "YOTA", "TELE2"};
     for (i = 0; i < 4; i++) {
+        *checking[i].operatorName = operators[0];
         sprintf(path, "../csv_input/%s/%d.csv", operators[0], csv[i]);
         tariff = fopen(path, "r");
         fscanf(tariff,
@@ -43,7 +45,9 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
                &checking[i].priceValue);
         fclose(tariff);
     }
+
     for (i = 4; i < 8; i++) {
+        *checking[i].operatorName = operators[1];
         sprintf(path, "../csv_input/%s/%d.csv", operators[1], csv[i - 4]);
         tariff = fopen(path, "r");
         fscanf(tariff,
@@ -59,8 +63,8 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
                &checking[i].priceValue);
         fclose(tariff);
     }
-
     for (i = 8; i < 12; i++) {
+        *checking[i].operatorName = operators[2];
         sprintf(path, "../csv_input/%s/%d.csv", operators[2], csv[i - 8]);
         tariff = fopen(path, "r");
         fscanf(tariff,
@@ -78,6 +82,7 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
     }
 
     for (i = 12; i < 16; i++) {
+        *checking[i].operatorName = operators[3];
         sprintf(path, "../csv_input/%s/%d.csv", operators[3], csv[i - 12]);
         tariff = fopen(path, "r");
         fscanf(tariff,
@@ -144,24 +149,28 @@ int comparison(int* gbe, int* mine, int* smse, int* price)
         && (minRecommend.smsValue == 1000) && (minRecommendReserve.gbValue < 51)
         && (minRecommendReserve.gbValue > 0)) {
         printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n "
-               "Цена: %d\n\n",
+               "Цена: %d\n\nОператор: %s\n",
                minRecommendReserve.tname,
                minRecommendReserve.gbValue,
                minRecommendReserve.minValue,
                minRecommendReserve.smsValue,
-               minRecommendReserve.priceValue);
+               minRecommendReserve.priceValue,
+               *minRecommendReserve.operatorName);
     } else if (
             ((minRecommendReserve.gbValue > 51)
              || (minRecommendReserve.gbValue <= 0))
             && (minRecommend.gbValue == 1000)) {
-        printf("Более подходящих тарифов в нашей базе не найдено \n");
+        printf("Более подходящих тарифов в нашей базе не найдено. Возможно, "
+               "стоит указать цену больше \n");
     } else {
-        printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: %d\n\n",
+        printf("Тариф: %s\n Гигабайт: %d\n Минут: %d\n СМС: %d\n Цена: "
+               "%d\n\nОператор: %s\n",
                minRecommend.tname,
                minRecommend.gbValue,
                minRecommend.minValue,
                minRecommend.smsValue,
-               minRecommend.priceValue);
+               minRecommend.priceValue,
+               *minRecommend.operatorName);
     }
     return 0;
 }
