@@ -1,0 +1,38 @@
+all: bin/optimal_tariff
+
+bin/optimal_tariff: obj/src/main/main.o obj/libfun.a
+	gcc -Wall -Werror -g -I src -o bin/optimal_tariff obj/src/main/main.o obj/libfun.a
+obj/src/functions/comparision.o: src/functions/comparision.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/comparision.o src/functions/comparision.c
+obj/src/main/main.o: src/main/main.c
+	gcc -Wall -Werror -c -I src -o obj/src/main/main.o src/main/main.c
+obj/src/functions/data.o: src/functions/data.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/data.o src/functions/data.c
+obj/src/functions/menu.o: src/functions/menu.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/menu.o src/functions/menu.c
+obj/src/functions/operators.o: src/functions/operators.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/operators.o src/functions/operators.c
+obj/src/functions/print1.o: src/functions/print1.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/print1.o src/functions/print1.c
+obj/src/functions/temp.o: src/functions/temp.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/temp.o src/functions/temp.c
+obj/src/functions/time.o: src/functions/time.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/time.o src/functions/time.c
+obj/src/functions/check.o: src/functions/check.c
+	gcc -Wall -Werror -c -I src -o obj/src/functions/check.o src/functions/check.c
+obj/libfun.a:  obj/src/functions/comparision.o obj/src/functions/data.o obj/src/functions/menu.o obj/src/functions/operators.o obj/src/functions/print1.o obj/src/functions/temp.o obj/src/functions/time.o obj/src/functions/check.o
+	ar rcs obj/libfun.a obj/src/functions/comparision.o obj/src/functions/data.o obj/src/functions/menu.o obj/src/functions/operators.o obj/src/functions/print1.o obj/src/functions/temp.o obj/src/functions/time.o obj/src/functions/check.o
+
+test: bin/test.bin
+
+bin/test.bin: obj/src/test/test.o obj/src/test/testmain.o obj/libfun.a
+	gcc -Wall -I thirdparty -I src -Werror -o bin/test.bin obj/src/test/test.o obj/src/test/testmain.o obj/libfun.a
+obj/src/test/test.o: test/test.c
+	gcc -Wall -I thirdparty -I src -Werror -c -o obj/src/test/test.o test/test.c
+obj/src/test/testmain.o: test/main.c
+	gcc -Wall -I thirdparty -I src -Werror -c -o obj/src/test/testmain.o test/main.c
+
+PHONY : clean
+
+clean:
+		rm -rf obj/src/main/*.o bin/optimal_tariff obj/src/functions/*.o obj/*.a test/*.o bin/*.bin obj/src/test/*.o
